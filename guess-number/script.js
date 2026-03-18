@@ -26,7 +26,7 @@ function initGame() {
   // ✅ 这里改了（不再显示 -）
   guessDisplay.textContent = "";
 
-  feedbackDiv.textContent = "数字を選んでください";
+  feedbackDiv.textContent = "请选择数字";
   attemptCount.textContent = remaining;
 
   historyList.innerHTML = "";
@@ -55,7 +55,7 @@ function createButtons() {
 // 点击检查
 checkBtn.addEventListener('click', () => {
   if (selectedNumber === null) {
-    feedbackDiv.textContent = "先に数字を選んでください！";
+    feedbackDiv.textContent = "请先选择一个数字！";
     return;
   }
 
@@ -66,14 +66,11 @@ checkBtn.addEventListener('click', () => {
 
   checkGuess(selectedNumber);
 
-  // 最后一条命提示
-  if (remaining === 1) {
-    feedbackDiv.textContent += "（ラストチャンス！）";
-  }
+
 
   // 用完次数
   if (remaining <= 0 && selectedNumber !== randomNumber) {
-    endGame("ゲームオーバー！正解は " + randomNumber);
+    endGame("游戏结束！正确答案是 " + randomNumber);
   }
 });
 
@@ -83,20 +80,19 @@ function checkGuess(guess) {
   const guessGroup = getGroup(guess);
 
   if (guess === randomNumber) {
-    feedbackDiv.textContent = "正解！数字が一致しました！";
-    endGame("クリア！");
+    endGame("恭喜你猜对啦！");
   } else if (guessGroup === answerGroup) {
     feedbackDiv.textContent =
-      guess > randomNumber ? "惜しい！少し高い！" : "惜しい！少し低い！";
+      guess > randomNumber ? "稍微有点高了" : "稍微有点低了";
   } else {
     feedbackDiv.textContent =
-      guess > randomNumber ? "高すぎ！" : "低すぎ！";
+      guess > randomNumber ? "太高了" : "太低了";
   }
 
   addHistory(guess);
 }
 
-// 履歴
+// 历史记录
 function addHistory(guess) {
   const li = document.createElement('li');
   const btn = document.createElement('button');
