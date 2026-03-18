@@ -26,7 +26,7 @@ function initGame() {
   // ✅ 这里改了（不再显示 -）
   guessDisplay.textContent = "";
 
-  feedbackDiv.textContent = "请选择数字";
+  feedbackDiv.textContent = "请在下方选择在1-40之间的数字";
   attemptCount.textContent = remaining;
 
   historyList.innerHTML = "";
