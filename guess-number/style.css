@@ -1,137 +1,149 @@
 /* 页面背景 */
-body{
-  font-family: Arial, sans-serif;
-  background-color:#ffeef5;
-  margin:0;
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
-  min-height:100vh;
+body {
+  font-family: Microsoft YaHei, sans-serif;
+  background-color: #ffeef5;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
-/* 游戏整体卡片 */
-.game{
-  background:white;
-  padding:25px;
-  margin-top:50px;
-  width:420px;
-  border-radius:14px;
+/* ✅ 去掉手机点击高亮 + 统一按钮颜色 */
+button {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  color: #000000;
+}
+
+button:focus,
+button:active {
+  outline: none;
+  color: #000000;
+}
+
+/* 游戏整体卡片（✅ 手机适配） */
+.game {
+  background: white;
+  padding: 25px;
+  margin-top: 20px;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 14px;
 }
 
 /* 标题区 */
-.show_area{
-  text-align:center;
-  margin-bottom:20px;
+.show_area {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.show_area h3{
-  color:#c94f7c;
-  margin-bottom:10px;
+.show_area h3 {
+  color: #c94f7c;
+  margin-bottom: 10px;
 }
 
 /* 信息显示 */
-#feedback{
-  background:#fff4f8;
-  padding:10px;
-  border-radius:10px;
-  margin:10px 0;
+#feedback {
+  background: #fff4f8;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
 }
 
-#guess{
-  margin:5px 0;
+#guess {
+  margin: 5px 0;
   height: 14px;
 }
 
-.attempts{
-  margin-bottom:10px;
+.attempts {
+  margin-bottom: 10px;
 }
 
 /* 控制按钮 */
-  .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px 0;
-  }
- #guess {
-    background: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 6px 12px;
-    flex: 1;
-    margin-right: 10px;
-    text-align: center;
-    font-weight: bold;
-    color: #c94f7c;
-  }
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
 
-  /* 按钮统一样式 */
-  .row button {
-    background: #ffd6e7;
-    border: none;
-    border-radius: 8px;
-    padding: 6px 12px;
-    cursor: pointer;
-    transition: 0.15s;
-    min-width: 80px;
-  }
+#guess {
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 6px 12px;
+  flex: 1;
+  margin-right: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: #c94f7c;
+}
 
-  .row button:hover,
-  #buttons button:hover {
-    background: #ffb3d1;
-    transform: scale(1.05);
-  }
-/* 数字按钮区域 */
-#buttons{
-  display:grid;
-  grid-template-columns:repeat(8,1fr);
-  gap:6px;
-  margin-top:15px;
+/* 按钮统一样式 */
+.row button {
+  background: #ffd6e7;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: 0.15s;
+  min-width: 80px;
+}
+
+.row button:hover,
+#buttons button:hover {
+  background: #ffb3d1;
+  transform: scale(1.05);
+}
+
+/* 数字按钮区域（✅ 自动适配手机） */
+#buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  gap: 6px;
+  margin-top: 15px;
 }
 
 /* 数字按钮 */
-#buttons button{
-  background:#ffd6e7;
-  border:none;
-  height:36px;
-  border-radius:8px;
-  cursor:pointer;
+#buttons button {
+  background: #ffd6e7;
+  border: none;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-#history-list{
-  list-style: none;      /* 去掉小圆点 */
-  padding-left: 0;
+/* 历史记录 */
+.history_area {
+  margin-top: 20px;
+}
 
+.history_area h4 {
+  color: #c94f7c;
+}
+
+/* 历史记录网格 */
+#history-list {
+  list-style: none;
+  padding-left: 0;
   display: grid;
-  grid-template-columns: repeat(8, 1fr); /* 和数字区一致 */
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
   gap: 6px;
 }
 
-#history-list button{
-  width: 100%;           /* ⭐ 关键：撑满格子 */
+/* 历史记录按钮 */
+#history-list button {
+  width: 100%;
   height: 36px;
-
   background: #ffd6e7;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-
   transition: 0.15s;
 }
 
-#buttons button:hover{
-  background:#ffb3d1;
-}
-
-/* 历史记录 */
-.history_area{
-  margin-top:20px;
-}
-
-.history_area h4{
-  color:#c94f7c;
-}
-
-#history-list{
-  padding-left:18px;
+/* hover效果 */
+#buttons button:hover {
+  background: #ffb3d1;
 }
