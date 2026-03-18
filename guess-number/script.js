@@ -86,7 +86,7 @@ function checkGuess(guess) {
       guess > randomNumber ? "稍微有点高了" : "稍微有点低了";
   } else {
     feedbackDiv.textContent =
-      guess > randomNumber ? "太高了" : "太低了";
+      guess > randomNumber ? "你猜的太高了" : "你猜的太低了";
   }
 
   addHistory(guess);
