@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
   <meta charset="UTF-8">
   <title>Guess the Number Game!</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<!-- update -->
+
 <body>
   <main class="game">
 
-    <!-- 显示区 -->
     <section class="show_area">
-      <h3>1から40の間の数字を当ててください！</h3>
-      <div id="feedback">数字を選んでください</div>
+      <h3>猜数字游戏</h3>
+      <div id="feedback">请在下方选择在1-40之间的数字</div>
 
       <div class="row">
         <div id="guess"></div>
-        <button id="check">チェック</button>
+        <button id="check">确认</button>
       </div>
 
       <div class="row">
-        <button id="new-game">新しいゲーム</button>
-        <div class="attempts">試行回数: <span id="attempt-count">5</span></div>
+        <button id="new-game">重新开始</button>
+        <div class="attempts">剩余次数: <span id="attempt-count">5</span></div>
       </div>
     </section>
 
-    <!-- 数字按钮区 -->
     <section class="numbers_area">
       <div id="buttons"></div>
     </section>
 
-    <!-- 履歴 -->
     <section class="history_area">
-      <h4>履歴一覧</h4>
+      <h4>历史记录</h4>
       <ul id="history-list"></ul>
     </section>
 
